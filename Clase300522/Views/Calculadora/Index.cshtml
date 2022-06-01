@@ -1,0 +1,46 @@
+﻿@model Clase300522.Models.cCalculadora
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Calculadora</h1>
+    <!--
+    Los parametros que recibe el BeginForm son:
+        1. El actionResult al que se va a dirigir
+        2. El nombre del controlador a utilizar
+        3. Metodo por donde se enviaran los datos al server
+    -->
+    @using (Html.BeginForm("/Calcular", "Calculadora", FormMethod.Post))
+    {
+        <div>
+            <label for="Operador1">Oprador1:</label>
+            <input type="text" class="form-control center-block"
+                   id="Operador1"
+                   name="Operador1"
+                   value="@Model.Operador1" />
+        </div>
+        <div>
+            <label for="Operador2">Oprador2:</label>
+            <input type="text" class="form-control center-block"
+                   id="Operador2"
+                   name="Operador2"
+                   value="@Model.Operador2" />
+        </div>
+        <label>Elige el operador:</label>
+        <select id="Accion" name="Accion">
+            <option value="+">+ (suma)</option>
+            <option value="-">- (resta)</option>
+            <option value="*">* (multi)</option>
+            <option value="/">/ (div)</option>
+        </select>
+        <input type="submit" value="Calcular" />
+        <div>
+            <label for="Respuesta">Total:</label>
+            <input type="text" class="form-control center-block" id="Respuesta"
+                   name="Respuesta"
+                   value="@Model.Respuesta" />
+        </div>
+    }
+</div>
+

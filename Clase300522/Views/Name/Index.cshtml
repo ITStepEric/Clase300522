@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Practica Nombre</title>
+</head>
+<body>
+    <!--tag helpers core NET
+    Method: forma en la que enviara o hara peticiones al servidor (get/post)
+    enctype: codificacion y decodificacion la info UTF-8 ansi
+        text/plain: hello world
+        x-www-form-urlencoded: original: hol@a- mundo codificada: hol%40+mundo
+        multipart/form-data: exclusiva de formularios, sirve para mandar tan su infomacion 
+        como archivos
+    asp-controller: controlador a utilizar
+    asp-action: hacia que vista nos va a mandar-->
+
+    <form method="post" 
+          enctype="multipart/form-data" 
+          <!--asp-controller="Name"--> 
+          <!--asp-action="Index">-->
+        <table>
+            <tr>
+                <td>Nombre:</td>
+                <td><input type="text" id="txtFirstName" name="FirstName"/></td>
+            </tr>
+            <tr>
+                <td>Apellido:</td>
+                <td><input type="text" id="txtLastName" name="LastName"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Enviar" /></td>
+            </tr>
+        </table>
+        <hr />
+        @ViewBag.Name
+    </form>
+</body>
+</html>
+
